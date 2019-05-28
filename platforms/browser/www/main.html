@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG6wrPWZastS09wtT4DhUG0N3bECeAYNE"></script>
+<script type="text/javascript" src="plugins/socket.min.js"></script>
+<script type="text/javascript" src="plugins/winDevice.js"></script>
+
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>HookUp</title>
+    <link rel="stylesheet" href="plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/OnsenUI-dist-2.10.8/OnsenUI-dist-2.10.8/css/onsenui.min.css">
+    <link rel="stylesheet" href="plugins/OnsenUI-dist-2.10.8/OnsenUI-dist-2.10.8/css/onsen-css-components.min.css">
+    <!--     <link rel="stylesheet" href="plugins/onsen-css-theme/onsen-css-components.min.css">
+ -->
+    <!-- Custom COmponents Sryles -->
+    <link rel="stylesheet" href="components/landing/landing.css">
+    <!-- Overwrite CSS For MapGL -->
+    <link rel="stylesheet" href="components/global/overwrite.css">
+    <link rel="stylesheet" href="components/global/onsen-css.css">
+    <link rel="stylesheet" href="components/login/login.css">
+    <link rel="stylesheet" href="components/otp-receiver/otp-receiver.css">
+    <link rel="stylesheet" href="components/geo-location/geo-location.css">
+    <link rel="stylesheet" href="plugins/animate.css">
+    <link rel="stylesheet" href="components/global/loading-css.css">
+    <link rel="stylesheet" href="components/user-preference/user-preference.css">
+</head>
+<!-- page="user-preference.html"  -->
+
+<body ng-cloak disable-tap>
+    <ons-navigator var="myNavigator" page="login.html" ng-cloak></ons-navigator>
+    <!-- Screen Loader While Init Pages -->
+    <!-- <div ons-loading-placeholder="login.html">
+        <div class="screen-loader">
+            <h4 class=" redirect animated pulse infinite">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </h4>
+        </div>
+    </div> -->
+    <!-- Login Page -->
+    <template id="login.html" ng-cloak >
+        <ons-page ng-controller="loginCtrl">
+            <!-- Route Loader -->
+            <div id="fb-root"></div>
+
+            <div class="screen-loader" ng-if="screenLoader">
+                <h4 class=" redirect animated pulse infinite">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </h4>
+            </div>
+            <div class="login-container" ng-if="!screenLoader" ng-if="hideLogin">
+                <div class="banner-container">
+                    <div class="banner-image animated bounceInDown"></div>
+                </div>
+                <div class="login-form-container">
+                    <ons-button id="submit" name="submit" ng-click="loginFacebook()" class="login-facebook">Facebook</ons-button>
+                </div>
+            </div>
+        </ons-page>
+    </template>
+   
+    <!--  Universal Toast For OnSENIUI -->
+    <ons-toast id="myToast" animation="ascend" ng-cloak>
+        {{toastMessage}}
+        <button onclick="myToast.hide()">ok</button>
+    </ons-toast>
+    <!-- Universal Dialog -->
+    <ons-dialog var="dialog" ng-cloak>
+        <div>
+            <p>
+                {{dialogMessage}}
+            </p>
+            <p>
+                <ons-button ng-click="dialog.hide()">Close</ons-button>
+            </p>
+        </div>
+    </ons-dialog>
+    <ons-modal var="commonModal" direction="up">
+        <div>
+        </div>
+    </ons-modal>
+   
+</body>
+
+<script>
+
+if (window.cordova.platformId == "browser") {
+    facebookConnectPlugin.browserInit(283734742253744);
+    // version is optional. It refers to the version of API you may want to use.
+}
+</script>
+
+
+<!-- Angular Based Framework -->
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript" src="plugins/angular-1.7.7/angular.min.js"></script>
+<script src="plugins/satellizer.min.js"></script>
+<script type="text/javascript" src="plugins/OnsenUI-dist-2.10.8/OnsenUI-dist-2.10.8/js/onsenui.min.js"></script>
+<script type="text/javascript" src="plugins/OnsenUI-dist-2.10.8/OnsenUI-dist-2.10.8/js/angular-onsenui.min.js"></script>
+<!-- <script type="text/javascript" src="plugins/angular-onsenui.min.js"></script> -->
+<!-- MapBox Ends -->
+<script type="text/javascript" src="init.js"></script>
+<!-- Add Controller -->
+<script type="text/javascript" src="components/login/loginCtrl.js"></script>
+<!-- Cordova Based API -->
+<script type="text/javascript" src="cordova-api/cordova-angular-geolocation/cordova-angular-geolocation.js"></script>
+<script type="text/javascript" src="cordova-api/cordova-angular-background/cordova-angular-background.js"></script>
+<script type="text/javascript" src="cordova-api/cordova-angular-notifications/cordova-angular-notifications.js"></script>
+<script type="text/javascript" src="cordova-api/cordova-angular-localstorage/cordova-angular-localstorage.js"></script>
+<script type="text/javascript" src="cordova-api/cordova-angular-diagnostics/cordova-angular-diagnostics.js"></script>
+<script type="text/javascript" src="cordova-api/cordova-angular-geo-background/cordova-angular-geo-background.js"></script>
+<!-- Services -->
+<script type="text/javascript" src="services/http-interceptors.js"></script>
+<script type="text/javascript" src="services/mapbox-services.js"></script>
+<script type="text/javascript" src="services/nexmo-services.js"></script>
+<script type="text/javascript" src="services/http-interceptors.js"></script>
+<script type="text/javascript" src="services/perform-permission.js"></script>
+<script type="text/javascript" src="services/state-manager.js"></script>
+<script type="text/javascript" src="services/rest-services.js"></script>
+<script type="text/javascript" src="services/nexmo-error.js"></script>
+<script type="text/javascript" src="services/geo-location-services.js"></script>
+<script type="text/javascript" src="services/socket-services.js"></script>
+<script type="text/javascript" src="services/social-login.js"></script>
+<script type="text/javascript" src="services/facebook-auth.js"></script>
+<!-- Directive -->
+<script type="text/javascript" src="components/global/global-directive.js"></script>
+
+</html>

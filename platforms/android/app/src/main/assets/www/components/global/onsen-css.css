@@ -1,0 +1,30 @@
+html,
+body {
+    font-family: monospace !important;
+    font-size: large;
+}
+
+.white {
+    color: white;
+}
+
+/*.carousel-relative {
+    margin-top: 2%;
+    position: relative;
+}*/
+
+.toolbar-color {
+    background: #e91e63;
+}
+
+
+
+.text-input--material {
+
+    background-image: none;
+}
+
+ons-list-header.list-header.list-header--inset.list-header--material {
+    font-weight: bold !important;
+}
+

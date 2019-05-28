@@ -1,0 +1,43 @@
+:root {
+    (...) --material-notification-background-color: #e91e63;
+    --material-switch-active-thumb-color: #009688;
+    --material-switch-inactive-thumb-color: #f1f1f1;
+    --material-switch-active-background-color: #77c2bb;
+    --material-switch-inactive-background-color: #b0afaf;
+    --material-range-track-color: #bdbdbd;
+}
+
+section {
+    padding: 3%;
+}
+
+
+.route-loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #2d2929;
+    opacity: 0.8;
+}
+
+.spinner-rotate {
+    left: 36%;
+    position: absolute;
+    top: 47%;
+    color: orange;
+}
+
+
+
+.screen-loader {
+    background: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+}
+
+.delay-animate {}
+

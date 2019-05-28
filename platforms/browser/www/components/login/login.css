@@ -1,0 +1,111 @@
+.login-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    vertical-align: middle;
+}
+
+.login-form-container {
+
+    margin: auto 0;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+
+
+}
+
+.login-form {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.login-button {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 56%;
+    background: #E91E63;
+    color: white;
+    border-color: #39ffa4;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.login-facebook {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 56%;
+    background: #4a5dc7;
+    color: white;
+    /* border-color: #39ffa4; */
+    font-size: larger;
+    font-weight: bold;
+}
+
+.input-otp {
+    font-weight: 900;
+}
+
+.banner-container {
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    position: relative;
+
+}
+
+.banner-image {
+    background-image: url(../../images/hook-up.png);
+    width: 90%;
+    height: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+
+}
+
+.login-error {
+    position: absolute;
+    margin: auto;
+    display: inline-block;
+    color: #de5431;
+    font-size: x-large;
+    font-weight: 600;
+    /* background: red; */
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 10%;
+    top: 78%;
+    width: 100%;
+    left: 0;
+    font-size: initial;
+    font-kerning: none;
+}
+
+
+.redirect {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    color: white;
+    margin: auto;
+    text-align: center;
+    top: 40%;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+
+.login-number {
+    border: none;
+    text-align: center;
+}
+
+
+input.text-input.text-input--material {
+    width: 100%;
+    border: none;
+    color: #9e9e9e;
+}
